@@ -1,6 +1,6 @@
 import sqlite3
 import pandas as pd
-conn = sqlite3.connect('STAFF.db')
+conn = sqlite3.connect('ExtractTransformLoad\Accessing Databases using Python script\STAFF.db')
 #Create and Load the table
 table_name = 'INSTRUCTOR'
 attribute_list = ['ID', 'FNAME', 'LNAME', 'CITY', 'CCODE']
@@ -36,8 +36,8 @@ data_dict = {'ID' : [100],
 data_append = pd.DataFrame(data_dict)
 data_append.to_sql(table_name, conn, if_exists = 'append', index =False)
 print('Data appended successfully')
-query_statement = f"SELECT COUNT(*) FROM {table_name}"
-query_output = pd.read_sql(query_statement, conn)
-print(query_statement)
-print(query_output)
+# query_statement = f"SELECT COUNT(*) FROM {table_name}"
+# query_output = pd.read_sql(query_statement, conn)
+# print(query_statement)
+# print(query_output)
 conn.close()
